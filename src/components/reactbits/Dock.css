@@ -1,0 +1,115 @@
+/* ==========================================================================
+   REACT BITS: DOCK COMPONENT
+   ========================================================================== */
+.dock-panel {
+  display: inline-flex;
+  align-items: flex-end;
+  padding: 0 8px 8px 8px;
+  border-radius: 20px;
+  background: rgba(16, 12, 24, 0.55);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(194, 164, 255, 0.12);
+  box-shadow: 
+    0 10px 30px rgba(0, 0, 0, 0.4),
+    inset 0 1px 0 rgba(255, 255, 255, 0.08),
+    inset 0 0 14px rgba(194, 164, 255, 0.03);
+  gap: 10px;
+  position: relative;
+  z-index: 10;
+  box-sizing: border-box;
+}
+
+.dock-item {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 14px;
+  background: rgba(194, 164, 255, 0.06);
+  border: 1px solid rgba(194, 164, 255, 0.15);
+  color: var(--text-muted, #9e9aa8);
+  cursor: pointer;
+  text-decoration: none;
+  outline: none;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.25);
+  transition: 
+    background-color 0.2s ease,
+    border-color 0.2s ease,
+    color 0.2s ease,
+    box-shadow 0.2s ease;
+  user-select: none;
+  -webkit-user-select: none;
+  box-sizing: border-box;
+  flex-shrink: 0;
+}
+
+.dock-item:hover,
+.dock-item:focus-visible {
+  background: rgba(194, 164, 255, 0.18);
+  border-color: var(--accent, #c2a4ff);
+  color: var(--accent, #c2a4ff);
+  box-shadow: 
+    0 6px 20px rgba(0, 0, 0, 0.35),
+    0 0 18px rgba(194, 164, 255, 0.4);
+}
+
+.dock-item:focus-visible {
+  outline: 2px solid var(--accent, #c2a4ff);
+  outline-offset: 2px;
+}
+
+.dock-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 44%;
+  height: 44%;
+  pointer-events: none;
+}
+
+.dock-icon svg {
+  width: 100%;
+  height: 100%;
+  transition: transform 0.2s ease;
+}
+
+.dock-item:hover .dock-icon svg {
+  transform: scale(1.05);
+}
+
+/* Tooltip Label */
+.dock-label {
+  position: absolute;
+  top: -34px;
+  left: 50%;
+  padding: 4px 10px;
+  border-radius: 8px;
+  background: rgba(12, 8, 20, 0.94);
+  border: 1px solid rgba(194, 164, 255, 0.25);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  box-shadow: 
+    0 4px 16px rgba(0, 0, 0, 0.55),
+    0 0 10px rgba(194, 164, 255, 0.18);
+  color: #f1edfa;
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.03em;
+  white-space: nowrap;
+  pointer-events: none;
+  z-index: 50;
+  line-height: 1.3;
+}
+
+/* Small downward arrow under tooltip */
+.dock-label::after {
+  content: '';
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+  border-width: 4px;
+  border-style: solid;
+  border-color: rgba(12, 8, 20, 0.94) transparent transparent transparent;
+}
